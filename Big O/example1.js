@@ -1,16 +1,29 @@
 const nemo = ["nemo"];
 
-const allElements = new Array(10000).fill("nemo");
+const allElements = new Array(10).fill("nemo");
 
 function findNemo1(array) {
-  let t0 = performance.now();
   for (let i = 0; i < array.length; i++) {
     if (array[i] === "nemo") {
       console.log("Found NEMO!");
     }
   }
-  let t1 = performance.now();
-  console.log(`It took ${t1 - t0} ms to complete the operation!`);
+}
+
+// So , the big of the for loops is O(1) becaus if we'll have 10 elements , we have to loop through all the elements to find the required element.
+
+// ForEach also has linear time i,e O(n) because inside it , it's implementing the same logic i,e for loop
+
+// ES5
+function findNemo2(array) {
+  array.forEach(function (cur) {
+    console.log(cur);
+  });
+}
+
+// ES6
+function findNemo2(array) {
+  array.forEach((cur) => console.log(cur));
 }
 
 findNemo1(allElements);
