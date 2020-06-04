@@ -71,3 +71,48 @@ function funChallenge(input) {
 }
 
 // bigO of above function => O(n)
+
+// EXERCISE 2 - Calculate bigO :
+
+function anotherFunChallenge(input) {
+  let a = 5;
+  // O(1);
+  let b = 10;
+  // O(1);
+  let c = 50;
+  // O(1);
+  for (let i = 0; i < input; i++) {
+    // O(n);
+    let x = i + 1;
+    // O(n);
+    let y = i + 2;
+    // O(n);
+    let z = i + 3;
+    // O(n);
+  }
+  for (let j = 0; j < input; j++) {
+    // O(n);
+    let p = j * 2;
+    // O(n);
+    let q = j * 2;
+    // O(n);
+  }
+  let whoAmI = "I don't know";
+  // O(1);
+}
+
+// bigO of above function => O(n)
+
+// Logging all pairs of element of an array
+
+const letters = ["a", "b", "c", "d", "e"];
+
+function logAllPairs(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      console.log(array[i], array[j]);
+    }
+  }
+}
+
+logAllPairs(letters);
