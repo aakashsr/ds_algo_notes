@@ -56,7 +56,7 @@ commonItem2(arr1, arr2);
 
 /* -------------- METHOD 3 ----------------- */
 
-// Using Array.some
+// Using JS Utilities ( Array.some method )
 
 function commonItem3(arr1,arr2){
   return arr1.some((item) => arr2.includes(item));
