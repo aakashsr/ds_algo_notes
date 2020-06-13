@@ -67,7 +67,6 @@ function reverse1(str) {
     return newArr.join('');
 }
 
-console.log(reverse1('hello'));
 
 // ii) Using FOR / OF Loop
 
@@ -79,7 +78,6 @@ function reverse2(str) {
     return reversed;
 }
 
-console.log(reverse2('hello'));
 
 // iii) Using reduce Loop
 
@@ -109,4 +107,65 @@ function reverse4(str) {
     return str.split().reverse().join('');
 }
 
-console.log(reverse4('hey'));
+
+
+
+
+
+// 1. Merge Sorted Array
+
+// function mergeSortedArrays(arr1, arr2) {
+//     let arr1Element = arr1[0];
+//     let arr2Element = arr2[0];
+//     let sortedArray = [];
+//     let i = 1;
+//     let j = 1;
+
+
+//     while (arr1Element || arr2Element) {
+//         if (arr2Element === undefined || arr1Element < arr2Element) {
+//             sortedArray.push(arr1Element);
+//             arr1Element = arr1[i]
+//             i++;
+//         } else {
+//             sortedArray.push(arr2Element);
+//             arr2Element = arr2[j]
+//             j++;
+//         }
+//         return sortedArray;
+//     }
+
+// }
+
+// console.log(mergeSortedArrays([0, 2, 3, 8], [1, 4, 7, 16]));
+
+function mergeSortedArrays(array1, array2) {
+    const mergedArray = [];
+    let array1Item = array1[0];
+    let array2Item = array2[0];
+    let i = 1;
+    let j = 1;
+
+    //We should actually move these 2 if statements to line 2 so that we do the checks before we do assignments in line 3 and 4!
+    if (array1.length === 0) {
+        return array2;
+    }
+    if (array2.length === 0) {
+        return array1;
+    }
+
+    while (array1Item || array2Item) {
+        if (array2Item === undefined || array1Item < array2Item) {
+            mergedArray.push(array1Item);
+            array1Item = array1[i];
+            i++;
+        } else {
+            mergedArray.push(array2Item);
+            array2Item = array2[j];
+            j++;
+        }
+    }
+    return mergedArray;
+}
+
+console.log(mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]));
