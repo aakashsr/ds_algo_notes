@@ -108,36 +108,7 @@ function reverse4(str) {
 }
 
 
-
-
-
-
 // 1. Merge Sorted Array
-
-// function mergeSortedArrays(arr1, arr2) {
-//     let arr1Element = arr1[0];
-//     let arr2Element = arr2[0];
-//     let sortedArray = [];
-//     let i = 1;
-//     let j = 1;
-
-
-//     while (arr1Element || arr2Element) {
-//         if (arr2Element === undefined || arr1Element < arr2Element) {
-//             sortedArray.push(arr1Element);
-//             arr1Element = arr1[i]
-//             i++;
-//         } else {
-//             sortedArray.push(arr2Element);
-//             arr2Element = arr2[j]
-//             j++;
-//         }
-//         return sortedArray;
-//     }
-
-// }
-
-// console.log(mergeSortedArrays([0, 2, 3, 8], [1, 4, 7, 16]));
 
 function mergeSortedArrays(array1, array2) {
     const mergedArray = [];
@@ -146,7 +117,6 @@ function mergeSortedArrays(array1, array2) {
     let i = 1;
     let j = 1;
 
-    //We should actually move these 2 if statements to line 2 so that we do the checks before we do assignments in line 3 and 4!
     if (array1.length === 0) {
         return array2;
     }
@@ -168,4 +138,4 @@ function mergeSortedArrays(array1, array2) {
     return mergedArray;
 }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]));
+// console.log(mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]));
