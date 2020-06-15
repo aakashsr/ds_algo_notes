@@ -66,11 +66,13 @@ class HashTable {
 // Method 1: Time complexity : O(n^2)
 
 
-const array = [2, 5, 5, 2, 3, 7, 10, 41, 10];
+const array = [2, 5, 6, 2, 3, 7, 89, 41, 10, 10];
 
 function returnFirstRepeatedChar1(arr) {
     for (let i = 0; i < arr.length; i++) {
+        let counter = 0;
         for (let j = i + 1; j < arr.length; j++) {
+            counter++;
             if (arr[i] === arr[j]) {
                 return arr[i];
             }
@@ -121,3 +123,7 @@ function returnFirstRepeatedChar3(arr) {
 }
 
 console.log(returnFirstRepeatedChar3(array));
+
+
+// Note : Our third function using Hash Table return the most frequest repeated character instead of first repeated char.
+// While the first and second method , return the first repeated char.
