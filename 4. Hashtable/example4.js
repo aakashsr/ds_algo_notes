@@ -1,5 +1,4 @@
 // 1. Implementing Hash Table in JavaScript
-console.log('hello');
 
 class HashTable {
     constructor(size) {
@@ -15,25 +14,33 @@ class HashTable {
     }
 
     set(key, value) {
-        let address = this._hash(key);
+        const address = this._hash(key);
         if (!this.data[address]) {
             this.data[address] = [];
-            this.data[address].push(key, value);
-            console.log(this.data);
+            this.data[address].push([key, value]);
+        } else {
+            this.data[address].push([key, value]);
         }
     }
 
     get(key) {
-        const obj = this.data.filter((cur) => {
-            if (cur[0][0] === key) {
-                return cur[0][1];
+        const address = this._hash(key);
+        const currentItem = this.data[address];
+        if (currentItem.length) {
+            for (let i = 0; i < currentItem.length; i++) {
+                if (currentItem[i][0] === key) {
+                    return currentItem[i][1];
+                }
             }
-        })
+        }
     }
 }
 
 const myHashTable = new HashTable(50);
 myHashTable.set('grapes', 10000);
 myHashTable.set('apples', 9);
+myHashTable.set('oranges', 2000);
+
 console.log(myHashTable.get('grapes'));
-// // myHashTable.get('apples');
+console.log(myHashTable.get('apples'));
+console.log(myHashTable.get('oranges'));
