@@ -34,6 +34,16 @@ class HashTable {
             }
         }
     }
+
+    getKeys() {
+        let keysArray = [];
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i]) { // checking if any  data exist 
+                keysArray.push(this.data[i][0][0]);
+            }
+        }
+        return keysArray;
+    }
 }
 
 const myHashTable = new HashTable(50);
@@ -41,6 +51,7 @@ myHashTable.set('grapes', 10000);
 myHashTable.set('apples', 9);
 myHashTable.set('oranges', 2000);
 
-console.log(myHashTable.get('grapes'));
-console.log(myHashTable.get('apples'));
-console.log(myHashTable.get('oranges'));
+// console.log(myHashTable.get('grapes'));
+// console.log(myHashTable.get('apples'));
+// console.log(myHashTable.get('oranges'));
+console.log(myHashTable.getKeys());
