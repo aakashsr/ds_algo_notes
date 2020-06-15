@@ -66,7 +66,7 @@ class HashTable {
 // Method 1: Time complexity : O(n^2)
 
 
-const array = [2, 5, 1, 9, 3, 7, 10, 4, 41];
+const array = [2, 5, 5, 2, 3, 7, 10, 41, 10];
 
 function returnFirstRepeatedChar1(arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -104,3 +104,20 @@ function returnFirstRepeatedChar2(arr) {
 console.log(returnFirstRepeatedChar2(array));
 
 // Time complexity : O(n)
+
+
+// Method 3: Time complexity : O(n) ( Using Hash Tables)
+
+function returnFirstRepeatedChar3(arr) {
+    const map = {};
+    for (let i = 0; i < arr.length; i++) {
+        if (map[arr[i]]) {
+            return arr[i];
+        } else {
+            map[arr[i]] = i;
+        }
+    }
+    return undefined;
+}
+
+console.log(returnFirstRepeatedChar3(array));
