@@ -46,12 +46,61 @@ class HashTable {
     }
 }
 
-const myHashTable = new HashTable(50);
-myHashTable.set('grapes', 10000);
-myHashTable.set('apples', 9);
-myHashTable.set('oranges', 2000);
+// const myHashTable = new HashTable(50);
+// myHashTable.set('grapes', 10000);
+// myHashTable.set('apples', 9);
+// console.log(myHashTable.data);
+// myHashTable.set('oranges', 2000);
 
 // console.log(myHashTable.get('grapes'));
 // console.log(myHashTable.get('apples'));
 // console.log(myHashTable.get('oranges'));
-console.log(myHashTable.getKeys());
+// console.log(myHashTable.getKeys());
+
+
+
+// 2. Google Interview Question 
+// Return the first re-ocurring character
+
+
+// Method 1: Time complexity : O(n^2)
+
+
+const array = [2, 5, 1, 9, 3, 7, 10, 4, 41];
+
+function returnFirstRepeatedChar1(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                return arr[i];
+            }
+        }
+    }
+    return undefined;
+}
+
+console.log(returnFirstRepeatedChar1(array));
+
+console.log('--------------');
+
+
+// Method 2: Time complexity : O(n)
+
+function returnFirstRepeatedChar2(arr) {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (i === 0) {
+            newArr.push(arr[i]);
+        } else {
+            const index = newArr.indexOf(arr[i]);
+            if (index === -1) {
+                newArr.push(arr[i]);
+            } else {
+                return arr[i];
+            }
+        }
+    }
+}
+console.log(returnFirstRepeatedChar2(array));
+
+// Time complexity : O(n)
