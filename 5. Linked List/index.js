@@ -73,6 +73,20 @@ class LinkedList {
         this.length++;
     }
 
+    remove(index) {
+
+        // create a method to get reference of first node between which our provided node is located 
+        let leader = this.traverseToNode(index - 1);
+
+        let nodeToBeDeleted = leader.next;
+
+        let follower = nodeToBeDeleted.next;
+
+        leader.next = follower;
+
+        this.length--;
+    }
+
     traverseToNode(index) {
         let counter = 0;
         // save the reference of head
@@ -97,4 +111,8 @@ myLinkedList.append(26);
 myLinkedList.append(36);
 myLinkedList.insert(50, 4);
 myLinkedList.insert(15, 3);
+myLinkedList.remove(2);
+myLinkedList.remove(4);
+
+
 console.log(myLinkedList.printList());
