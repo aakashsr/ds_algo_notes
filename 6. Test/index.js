@@ -257,13 +257,13 @@ class Array {
     }
 }
 
-const myArray = new Array();
-myArray.push(10);
-myArray.pop();
-myArray.push('aakash');
-myArray.push('aditi');
-myArray.push('shubham');
-myArray.push('deepak');
-myArray.push('himanshu');
-myArray.delete(1);
-console.log(myArray);
+// const myArray = new Array();
+// myArray.push(10);
+// myArray.pop();
+// myArray.push('aakash');
+// myArray.push('aditi');
+// myArray.push('shubham');
+// myArray.push('deepak');
+// myArray.push('himanshu');
+// myArray.delete(1);
+// console.log(myArray);
