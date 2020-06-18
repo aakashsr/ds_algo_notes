@@ -98,31 +98,39 @@ class LinkedList {
         }
         return currentNode;
     }
+
+    reverse() {
+        if (!this.head.next) {
+            return this.head;
+        }
+
+        let first = this.head;
+        this.tail = this.head;
+        let second = first.next;
+        while (second) {
+            let temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp
+        }
+        this.head.next = null;
+        this.head = first;
+    }
 }
 
+const myLinkedList = new LinkedList(10);
+myLinkedList.append(5);
+myLinkedList.append(25);
+myLinkedList.append(35);
+myLinkedList.append(45);
+console.log(myLinkedList.printList());
+console.log(myLinkedList.reverse());
+console.log(myLinkedList.printList());
+
+console.log(myLinkedList);
 
 
-// const myLinkedList = new LinkedList(10);
-// myLinkedList.prepend(5);
-// myLinkedList.prepend(15);
-
-// myLinkedList.append(16);
-// myLinkedList.append(26);
-// myLinkedList.append(36);
-// myLinkedList.insert(50, 4);
-// myLinkedList.insert(15, 3);
-// myLinkedList.remove(2);
-// myLinkedList.remove(4);
-
-
-// console.log(myLinkedList.printList());
-
-
-
-
-
-
-/* ---------------  DOUBLE LINKED LIST ----------------- */
+/* ---------------  DOUBLY LINKED LIST ----------------- */
 
 class NewLinkedList {
     constructor(value) {
@@ -225,6 +233,9 @@ class NewLinkedList {
 
         leader.next = follower;
 
+        // update the prev property of follower with leader
+        follower.prev = leader;
+
         this.length--;
     }
 
@@ -240,9 +251,3 @@ class NewLinkedList {
         return currentNode;
     }
 }
-
-const ourLinkedList = new NewLinkedList(10);
-ourLinkedList.append(5);
-ourLinkedList.prepend(1)
-ourLinkedList.insert(20, 1)
-console.log(ourLinkedList);
